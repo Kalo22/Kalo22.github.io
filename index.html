@@ -8,13 +8,41 @@
     <title>Home</title>
 </head>
 <body>
-    <div class = "container">
-        <h1>Welcome to my Personal Website!</h1>
-        <h2>Here yiou can find some of my sideprojects</h2>
-        <a href = "/index.html"><h2> Home</h2></a>
-        <a href = "/about.html"><h2> About</h2></a>
-        <a href = "/demos.html"><h2> Demos</h2></a>
-        <a href = "/gitrep.html"><h2> Git Repos</h2></a>
+    <header>
+        <div id="nav-icon1" class="menu-trigger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class = "menu">
+            <ul>
+                <li><a href = "/index.html">Home</a></li>
+                <li><a href = "/about.html">About</a></li>
+                <li><a href = "/demos.html">Demos</a></li>
+                <li><a href = "/gitrep.html">Git Repos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="photo" id="dynamicPhoto">
+        <img src="images/cybergirl.png" alt="cybergirl">
     </div>
+    
+    <div class="content-container" id="contentContainer">
+        <div class="container" >
+            <h1>Welcome to my Personal Website!</h1>
+            <h2>Here you can find some of my sideprojects</h2>
+            <h1>Memes!</h1>
+            <img src="memes/meme1.png" alt="meme1" width="500" height="600">
+            <video width="650" height="900" controls>
+                <source src="memes/videoMeme1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
 </body>
 </html>

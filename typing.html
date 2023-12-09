@@ -6,23 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href = "style.css">
     <title>TypeSoft</title>
-    <script src="https://cjrtnc.leaningtech.com/3.0rc2/cj3loader.js"></script> //web ass
+    <script src="https://cjrtnc.leaningtech.com/3.0rc2/cj3loader.js"></script> <!--Web ass-->
 </head>
-<body>
+<body>    
+    <div>
+        <button id="backButton" onclick="goBack()">X</button>
+        <div id="display" style="width: 800px; height: 800px;"></div>
+    </div>
+    <div>
+        <h1>Program Demos</h1>
+        <h2>Java Typing Software</h2>
+    </div>
     <script>
         (async function () {
           await cheerpjInit();
-          cheerpjCreateDisplay(800, 600);
+          cheerpjCreateDisplay(600, 600, document.getElementById('display'));
           await cheerpjRunJar("/app/java_programs/TypingSoftware.jar");
         })();
+
+        function goBack() {
+            window.history.back();
+        }
     </script>
-    <div class = "container">
-        <h1>Program Demos</h1>
-        <h2>Java TypeSpeed Test</h2>
-        <a href = "/index.html"><h2> Home</h2></a>
-        <a href = "/about.html"><h2> About</h2></a>
-        <a href = "/demos.html"><h2> Demos</h2></a>
-        <a href = "/gitrep.html"><h2> Git Repos</h2></a>
-    </div>
+    <script src="script.js"></script>
+
 </body>
 </html>

@@ -8,13 +8,28 @@
     <title>Git Repos</title>
 </head>
 <body>
-    <div class = "container">
-        <h1>Git repos</h1>
-        <h2>Here are some of my Git Repos</h2>
-        <a href = "/index.html"><h2> Home</h2></a>
-        <a href = "/about.html"><h2> About</h2></a>
-        <a href = "/demos.html"><h2> Demos</h2></a>
-        <a href = "/gitrep.html"><h2> Git Repos</h2></a>
+    <header>
+        <div id="nav-icon1" class="menu-trigger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class = "menu">
+            <ul>
+                <li><a href = "/index.html">Home</a></li>
+                <li><a href = "/about.html">About</a></li>
+                <li><a href = "/demos.html">Demos</a></li>
+                <li><a href = "/gitrep.html">Git Repos</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="photo" id="dynamicPhoto">
+        <img src="images/cybergirl.png" alt="cybergirl">
     </div>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
