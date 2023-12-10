@@ -24,25 +24,13 @@ header {
 /* PHOTO AT THE BEGINNING */
 .photo {
   position: relative;
-  top: 0;
-  width: 100%;
-  height: 40vh;
-  margin-top: 0;
+  color: white;
 }
 
 .photo img {
-  width: 100%;
+  width: auto;
   height: 100%;
   object-fit: contain; /* Use 'contain' to ensure the entire image is within the container */
-}
-
-.photo .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .menu-trigger {
@@ -69,16 +57,21 @@ header {
 
 .menu a {
   text-decoration: none;
+  background: linear-gradient(to right, rgb(255, 255, 255),#d3531a);
+  background-size: 200% 200%;
+  animation: rainbow 2s ease-in-out infinite;
+  background-clip: text;
+  -webkit-background-clip:text;
   color: #d3531a;
   font-weight: bold;
-  font-size: 20px; /* Set the initial font size */
+  font-size: 30px; /* Set the initial font size */
   transition: font-size 0.3s ease; /* Add a smooth transition effect for font size */
 }
 
 .menu a:hover {
-  color: #fff;
+  color: rgba(0,0,0,0);
   transform: scale(1.1);
-  font-size: 25px; /* Increase the font size on hover */
+  font-size: 36px; /* Increase the font size on hover */
 }
 
 .menu.active {
@@ -129,13 +122,36 @@ header {
     text-align: center; /* Center text within the button */
     font-size: 18px; /* Set the font size */
     text-transform: uppercase; /* Convert text to uppercase */
-    transition: all 0.3s ease; /* Add a smooth transition effect */
+    transition: all 0.5s ease; /* Add a smooth transition effect */
 }
 
 .container a:hover {
     background-color: #000; /* Change background color on hover */
     color: #fff; /* Change text color on hover */
 }
+
+  .title-overlay {
+    width: 100%;
+  }
+  .gradient-text{
+    position: absolute;
+    transition: all .5s ease;
+    background: linear-gradient(to right, rgb(255, 255, 255),#d3531a);
+    background-size: 200% 200%;
+    animation: rainbow 2s ease-in-out infinite;
+    background-clip: text;
+    -webkit-background-clip:text;
+    color: #d3531a;
+    font-size: 70pt;
+    width: auto;
+    top: 60%;
+    left: 5%;
+    font-weight: bold;
+  }
+  
+  .gradient-text:hover{
+    color:rgba(0,0,0,0);
+  }
 
 /*MENU HAMBURGER ICON*/
   
@@ -156,9 +172,9 @@ header {
 }
 
 #nav-icon1.open {
-    width: 60px; /* Adjust to match the icon size */
+    width: 75px; /* Adjust to match the icon size */
     height: 45px; /* Adjust to match the icon size */
-    left: calc(50% - 60px); /* Adjust the value accordingly */
+    left: calc(50% - 100px); /* Adjust the value accordingly */
 }
 
 #nav-icon1:hover span {
@@ -227,4 +243,117 @@ header {
   #display {
     background-color: black; /* Set a contrasting background color */
     /* Add other necessary styles */
+}
+
+/*when the screen is resized*/
+@media (max-width: 1500px) {
+  #nav-icon1 {
+      width: 60px; /* Adjust the width for smaller screens */
+      height: 60px; /* Adjust the height for smaller screens */
+      /* ... other styles ... */
+  }
+
+  .menu a{
+      font-size: 20px; /* Adjust the font size for smaller screens */
+      /* ... other styles ... */
+  }
+  .menu a:hover {
+    transform: scale(1.1);
+    font-size: 25px; /* Increase the font size on hover */
+  }
+
+  #nav-icon1.open {
+    width: 60px; /* Adjust to match the icon size */  
+    left: calc(50% - 100px); /* Adjust the value accordingly */
+}
+
+.gradient-text {
+  top: 60%;
+  left: 5%;
+  font-size: 50pt;
+}
+}
+
+@media (max-width: 930px) {
+
+  .title-overlay {
+    display: none;
+  }
+}
+
+/*text gradient animated*/
+@keyframes rainbow { 
+  0%{background-position:left}
+  50%{background-position:right}
+  100%{background-position:left}
+}
+
+/*BACKGROUND TILES*/
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+/* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+/* Animations */
+@-webkit-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+/* Main styles */
+body {
+  color: #000;
+  font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
+  text-align: center;
+  /* img size is 50x50 */
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+  -webkit-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Safari 4+ */
+  -moz-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Fx 5+ */
+  -o-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Opera 12+ */
+  animation: bg-scrolling-reverse 0.92s infinite;
+  /* IE 10+ */
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+body::before {
+  font-size: 8rem;
+  font-weight: 100;
+  font-style: normal;
 }
