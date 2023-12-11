@@ -1,11 +1,36 @@
+/*IMPO FONTS*/
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+
 body {
+  font-family: 'Source Code Pro', monospace;
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
   background-color: #fff; /* Set a background color for the body */
-  color: #333; /* Set the text color */
   line-height: 1.6; /* Improve line height for better readability */
+  color: #000;
+  text-align: center;
+  /* img size is 50x50 */
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+  -webkit-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Safari 4+ */
+  -moz-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Fx 5+ */
+  -o-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Opera 12+ */
+  animation: bg-scrolling-reverse 0.92s infinite;
+  /* IE 10+ */
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
 }
 
+body::before {
+  font-size: 8rem;
+  font-weight: 100;
+  font-style: normal;
+}
 
 header {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
@@ -25,12 +50,48 @@ header {
 .photo {
   position: relative;
   color: white;
+  border-bottom: 3px solid #161616;
+}
+
+.feed-item {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.feed-item img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  object-fit: contain; /* Use 'contain' to ensure the entire image is within the container */
+  border: 25px solid rgba(191, 191, 191, 0.5); /* Add a semi-transparent border to simulate glass */
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); /* Add a semi-transparent blurred shadow */
+  border-radius: 25px; /* Add border-radius for rounded corners to the image */
+  box-sizing: border-box; /*takes into consideration border*/
+}
+
+.feed-item video {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  object-fit: contain; /* Use 'contain' to ensure the entire image is within the container */
+  display: block;
+  margin: 0 auto;
+  border: 25px solid rgba(191, 191, 191, 0.5); /* Add a semi-transparent border to simulate glass */
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); /* Add a semi-transparent blurred shadow */
+  border-radius: 25px; /* Add border-radius for rounded corners to the image */
+  box-sizing: border-box; /*takes into consideration border*/
 }
 
 .photo img {
   width: auto;
   height: 100%;
+  display: block;
   object-fit: contain; /* Use 'contain' to ensure the entire image is within the container */
+  margin: 0 auto;
+
 }
 
 .menu-trigger {
@@ -56,13 +117,14 @@ header {
 }
 
 .menu a {
+  font-family: 'Source Code Pro', monospace;
   text-decoration: none;
-  background: linear-gradient(to right, rgb(255, 255, 255),#d3531a);
+  background: linear-gradient(to right,#0F2538, #4c864b, rgb(60, 225, 225),#fff);
   background-size: 200% 200%;
   animation: rainbow 2s ease-in-out infinite;
   background-clip: text;
   -webkit-background-clip:text;
-  color: #d3531a;
+  color: #fff;
   font-weight: bold;
   font-size: 30px; /* Set the initial font size */
   transition: font-size 0.3s ease; /* Add a smooth transition effect for font size */
@@ -113,6 +175,7 @@ header {
 }
 
 .container a {
+    font-family: 'Source Code Pro', monospace;
     color: #000; /* Set the color to black */
     display: inline-block; /* Display links as inline-block elements */
     padding: 10px 20px; /* Add padding to create a button-like appearance */
@@ -130,23 +193,31 @@ header {
     color: #fff; /* Change text color on hover */
 }
 
+.container h2 {
+  font-family: 'Source Code Pro', monospace;
+}
+.container h1 {
+  font-family: 'Source Code Pro', monospace;
+}
+
   .title-overlay {
     width: 100%;
   }
   .gradient-text{
+    font-family: 'Source Code Pro', monospace;
+    font-weight: bold;
     position: absolute;
     transition: all .5s ease;
-    background: linear-gradient(to right, rgb(255, 255, 255),#d3531a);
+    background: linear-gradient(to right, #0F2538, #4c864b, rgb(60, 225, 225), #fff);
     background-size: 200% 200%;
     animation: rainbow 2s ease-in-out infinite;
     background-clip: text;
     -webkit-background-clip:text;
-    color: #d3531a;
+    color: #fff;
     font-size: 70pt;
     width: auto;
     top: 60%;
     left: 5%;
-    font-weight: bold;
   }
   
   .gradient-text:hover{
@@ -178,7 +249,7 @@ header {
 }
 
 #nav-icon1:hover span {
-  background: #fff; /* Change the color to white on hover */
+  background: rgb(60, 225, 225); /* Change the color to white on hover */
 }
   
 #nav-icon1 span {
@@ -186,7 +257,7 @@ header {
     position: absolute;
     height: 9px;
     width: 100%;
-    background: #d3531a;
+    background: #fff;
     border-radius: 9px;
     opacity: 1;
     left: 0;
@@ -331,29 +402,4 @@ header {
   0% {
     background-position: 50px 50px;
   }
-}
-/* Main styles */
-body {
-  color: #000;
-  font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
-  text-align: center;
-  /* img size is 50x50 */
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
-  -webkit-animation: bg-scrolling-reverse 0.92s infinite;
-  /* Safari 4+ */
-  -moz-animation: bg-scrolling-reverse 0.92s infinite;
-  /* Fx 5+ */
-  -o-animation: bg-scrolling-reverse 0.92s infinite;
-  /* Opera 12+ */
-  animation: bg-scrolling-reverse 0.92s infinite;
-  /* IE 10+ */
-  -webkit-animation-timing-function: linear;
-  -moz-animation-timing-function: linear;
-  -o-animation-timing-function: linear;
-  animation-timing-function: linear;
-}
-body::before {
-  font-size: 8rem;
-  font-weight: 100;
-  font-style: normal;
 }
