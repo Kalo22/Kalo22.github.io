@@ -2,14 +2,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
 
-body {
+body {  
   font-family: 'Source Code Pro', monospace;
   margin: 0;
-  font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
   background-color: #fff; /* Set a background color for the body */
   line-height: 1.6; /* Improve line height for better readability */
   color: #000;
   text-align: center;
+  justify-content: center;
   /* img size is 50x50 */
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
   -webkit-animation: bg-scrolling-reverse 0.92s infinite;
@@ -24,6 +24,9 @@ body {
   -moz-animation-timing-function: linear;
   -o-animation-timing-function: linear;
   animation-timing-function: linear;
+  display: flex;
+  flex-direction: column; /*side by side and column makes it to the bottom (done for the footer)*/
+  min-height: 100vh;
 }
 
 body::before {
@@ -34,7 +37,7 @@ body::before {
 
 header {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
-  padding: 15px;
+  padding-top: 15px;
   color: #fff;
   text-align: center;
   display: flex;
@@ -44,13 +47,24 @@ header {
   width: 100%;
   z-index: 1;
   overflow: hidden;
+  top: 0px;
 }
 
 /* PHOTO AT THE BEGINNING */
 .photo {
   position: relative;
-  color: white;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   border-bottom: 3px solid #161616;
+  color: white;
 }
 
 .feed-item {
@@ -86,12 +100,12 @@ header {
 }
 
 .photo img {
-  width: auto;
-  height: 100%;
-  display: block;
-  object-fit: contain; /* Use 'contain' to ensure the entire image is within the container */
-  margin: 0 auto;
-
+  position: relative;
+}
+.photo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .menu-trigger {
@@ -117,7 +131,6 @@ header {
 }
 
 .menu a {
-  font-family: 'Source Code Pro', monospace;
   text-decoration: none;
   background: linear-gradient(to right,#0F2538, #4c864b, rgb(60, 225, 225),#fff);
   background-size: 200% 200%;
@@ -166,7 +179,6 @@ header {
     margin-right: 40px; /* Initial spacing */
     transition: opacity 1.0s ease, transform 1.0s ease, margin-right 1.0s ease; /* Add transition for margin-right */
     display: inline-block;
-    margin-right: 40px; /* Adjust the delay and spacing for the second li */
     transition-delay: 0.2s; /* Delay the transition for the second li */
 }
 
@@ -175,7 +187,6 @@ header {
 }
 
 .container a {
-    font-family: 'Source Code Pro', monospace;
     color: #000; /* Set the color to black */
     display: inline-block; /* Display links as inline-block elements */
     padding: 10px 20px; /* Add padding to create a button-like appearance */
@@ -193,18 +204,10 @@ header {
     color: #fff; /* Change text color on hover */
 }
 
-.container h2 {
-  font-family: 'Source Code Pro', monospace;
-}
-.container h1 {
-  font-family: 'Source Code Pro', monospace;
-}
-
   .title-overlay {
     width: 100%;
   }
   .gradient-text{
-    font-family: 'Source Code Pro', monospace;
     font-weight: bold;
     position: absolute;
     transition: all .5s ease;
@@ -222,6 +225,24 @@ header {
   
   .gradient-text:hover{
     color:rgba(0,0,0,0);
+  }
+  
+  .gradient-text2 {
+    display: none;
+    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    transition: all .5s ease;
+    background: linear-gradient(to right, #0F2538, #4c864b, rgb(60, 225, 225), #fff);
+    background-size: 200% 200%;
+    animation: rainbow 2s ease-in-out infinite;
+    background-clip: text;
+    -webkit-background-clip:text;
+    color:rgba(0,0,0,0);
+    font-size: 18pt;
+    width: auto;
+    top: 60%;
   }
 
 /*MENU HAMBURGER ICON*/
@@ -353,7 +374,39 @@ header {
   .title-overlay {
     display: none;
   }
+  
+  .gradient-text2 {
+    display: block;
+  }
 }
+
+@media (max-width: 700px) {
+
+  .title-overlay {
+    display: none;
+  }
+
+  .gradient-text2 {
+    display: block;
+    font-size: 12pt;
+  }
+
+  .menu {
+    top: 17%;
+    left: 35%;
+  }
+
+  .menu li {
+    box-sizing: border-box;
+    padding: 5px;
+    margin: 0px
+  }
+
+  .menu.active li {
+    margin-right: 0px; /* Initial spacing */
+}
+}
+
 
 /*text gradient animated*/
 @keyframes rainbow { 
@@ -407,6 +460,7 @@ header {
   }
 }
 /*footer*/
+
 .footer {
   position: relative;
   width: auto;
@@ -417,6 +471,7 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: auto; /*stick to the bottom of the screen */
 }
 
 .social-icon {
@@ -504,4 +559,8 @@ header {
   100% {
     background-positon-x: 0px;
   }
+}
+
+.last-item {
+  margin-bottom: 110px;
 }

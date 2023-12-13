@@ -13,17 +13,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function resizePhoto() {
-    const photo = document.getElementById('dynamicPhoto');
-    const img = photo.querySelector('img');
-    const aspectRatio = img.naturalWidth / img.naturalHeight;
-    const newHeight = window.innerWidth / aspectRatio;
-  
-    photo.style.height = newHeight + 'px';
-  }
-  
-  // Call the function on window resize
-  window.addEventListener('resize', resizePhoto);
-  
-  // Call the function on page load
-  window.addEventListener('load', resizePhoto);
+const header = document.querySelector('header');
+
+// Function to update header style based on scroll position
+function handleScroll() {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Adjust the header height based on the scroll position
+    if (scrollPosition > 0) {
+        header.style.top = Math.max(0 - scrollPosition, -43) + 'px';
+    } else {
+        // Return to the initial size when at the top
+        header.style.top = '0px'; // Set to the initial height
+    }
+}
+
+// Attach the scroll event listener
+window.addEventListener('scroll', handleScroll);
+
+// stick the footer to the bottom of the page
