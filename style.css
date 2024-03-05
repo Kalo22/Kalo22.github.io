@@ -29,6 +29,11 @@ body {
   min-height: 100vh;
 }
 
+ul {
+  list-style: none; /* Remove the default list-style */
+  padding: 0; /* Remove any default padding */
+}
+
 body::before {
   font-size: 8rem;
   font-weight: 100;
@@ -67,6 +72,15 @@ header {
   color: white;
 }
 
+#profile-image {
+  width: 20px;
+  height: 120px;
+  max-width: 100%;
+  object-fit: contain;
+  border-bottom: 3px solid #161616;
+  color: white;
+}
+
 .feed-item {
   text-align: center;
   margin-top: 40px;
@@ -75,11 +89,67 @@ header {
   margin-left: 5%;
 }
 
+.app-item-bord {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background-color: rgba(191, 191, 191, 0.5);
+  object-fit: contain; /* Use 'contain' to ensure the entire image is within the container */
+  border: 25px solid rgba(191, 191, 191, 0.5); /* Add a semi-transparent border to simulate glass */
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); /* Add a semi-transparent blurred shadow */
+  border-radius: 25px; /* Add border-radius for rounded corners to the image */
+  box-sizing: border-box; /*takes into consideration border*/
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.content-item-bord {
+  max-width: 1700px;
+  margin: 40px auto 70px; /* Center the div horizontally and apply margin top and bottom */
+  height: auto;
+  background-color: rgba(191, 191, 191, 0.7);
+  border: 25px solid rgba(191, 191, 191, 0.1);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  box-sizing: border-box;
+  text-align: center; /* Keep text-align center if you have text content inside */
+  display: flex; /* Add flex display to the content-item-bord div */
+}
+
+.profile-image {
+  max-width: 100px; /* Set the maximum width for the image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 25px 0 0 25px; /* Rounded corners only on the left side */
+}
+
+.content-text {
+  flex: 1; /* Allow the content-text to take remaining space */
+  padding: 20px; /* Add padding for spacing between the image and text */
+}
+
+.text-item-bord {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background-color: rgba(191, 191, 191, 0.6);
+  object-fit: contain; /* Use 'contain' to ensure the entire image is within the container */
+  border: 25px solid rgba(191, 191, 191, 0.1); /* Add a semi-transparent border to simulate glass */
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); /* Add a semi-transparent blurred shadow */
+  border-radius: 25px; /* Add border-radius for rounded corners to the image */
+  box-sizing: border-box; /*takes into consideration border*/
+  text-align: center;
+}
+
 .feed-item img {
   width: 100%;
   max-width: 700px;
   height: auto;
   object-fit: contain; /* Use 'contain' to ensure the entire image is within the container */
+  background-color: rgba(191, 191, 191, 0.5);
   border: 25px solid rgba(191, 191, 191, 0.5); /* Add a semi-transparent border to simulate glass */
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); /* Add a semi-transparent blurred shadow */
   border-radius: 25px; /* Add border-radius for rounded corners to the image */
@@ -93,6 +163,7 @@ header {
   object-fit: contain; /* Use 'contain' to ensure the entire image is within the container */
   display: block;
   margin: 0 auto;
+  background-color: rgba(191, 191, 191, 0.5);
   border: 25px solid rgba(191, 191, 191, 0.5); /* Add a semi-transparent border to simulate glass */
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); /* Add a semi-transparent blurred shadow */
   border-radius: 25px; /* Add border-radius for rounded corners to the image */
@@ -184,6 +255,11 @@ header {
 
 .menu-trigger.active {
     font-weight: bold;
+}
+
+.buttonmenu {
+  margin-top: 20px;
+  margin-bottom: 120px;
 }
 
 .container a {
@@ -337,7 +413,44 @@ header {
   /*WINDOW UNDERNEATH THE CHEERPJ*/
   #display {
     background-color: black; /* Set a contrasting background color */
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 800px;
     /* Add other necessary styles */
+}
+  #appcontent {
+    align-items: center;
+    justify-content: center;
+  }
+  #appbody {
+    align-items: center;
+    justify-content: center;
+  }
+
+  #backButton {
+    background-color: transparent; /* Set the background color to transparent */
+    color: #000; /* Set the text color to black */
+    padding: 10px 20px; /* Add padding to create a button-like appearance */
+    border: 2px solid #000; /* Add a border */
+    text-align: center; /* Center text within the button */
+    font-size: 18px; /* Set the font size */
+    text-transform: uppercase; /* Convert text to uppercase */
+    margin-right: 4%;
+    border-radius: 20px; /* Set border-radius for rounded corners */
+    position: relative; /* Make position relative to allow absolute positioning of pseudo-element */
+    overflow: hidden; /* Hide overflow to prevent shadow from overflowing */
+    margin: 10px;
+
+    /* Add shadow effect */
+    transition: all 0.3s ease; /* Add a smooth transition effect */
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* Initial shadow */
+}
+
+#backButton:hover {
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); /* Add a semi-transparent blurred shadow */
+    transform: scale(1.2); /* Scale the button by 10% when hovered over */
+
 }
 
 /*when the screen is resized*/
@@ -405,6 +518,7 @@ header {
   .menu.active li {
     margin-right: 0px; /* Initial spacing */
 }
+
 }
 
 
@@ -563,4 +677,122 @@ header {
 
 .last-item {
   margin-bottom: 110px;
+}
+
+@media only screen and (min-width: 1300px) {
+  .content-item-bord {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: left; /* Align text to the left when the screen is wider */
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .content-item-bord {
+    flex-direction: column-reverse;
+    text-align: center; /* Center text when the screen is smaller */
+  }
+  .content-text {
+    flex: 1; /* Allow the content-text to take remaining space */
+    padding: 20px; /* Add padding for spacing between the image and text */
+  }
+  .content-item-bord {
+  align-items: center;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .content-text {
+    flex: 1; /* Allow the content-text to take remaining space */
+    padding: 20px; /* Add padding for spacing between the image and text */
+    font-size: 10px;
+  }
+}
+
+.scroll-to-top {
+  position: fixed;
+  top: 25%;
+  right: 40%;
+  z-index: 9999;
+  display: none; /* Initially hidden */
+  cursor: pointer;
+  transition: opacity 0.5s ease; /* Apply smooth transition for opacity changes */
+  animation: moveUpDown 0.8s infinite alternate;
+}
+
+.scroll-to-top span {
+  font-size: 100px;
+  color: rgb(76, 197, 227);
+  animation: flash 0.4s infinite alternate; /* Apply vertical oscillation and flashing animations */
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(-20px); /* Move up */
+  }
+  100% {
+    transform: translateY(20px); /* Move down */
+  }
+}
+
+@keyframes flash {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+@media (min-width: 1800px) {
+  .scroll-to-top {
+    position: fixed;
+    top: 40%;
+    right: 41%;
+    z-index: 9999;
+    display: none; /* Initially hidden */
+    cursor: pointer;
+  }
+
+.scroll-to-top span {
+  font-size: 150px;
+  color: rgb(76, 197, 227);
+  animation: flash 1s infinite alternate; /* Apply flashing animation */
+}
+}
+@media (min-width: 2600px) {
+  .scroll-to-top {
+    position: fixed;
+    top: 45%;
+    right: 48%;
+    z-index: 9999;
+    display: none; /* Initially hidden */
+    cursor: pointer;
+  }
+
+.scroll-to-top span {
+  font-size: 250px;
+  color: rgb(76, 197, 227);
+  animation: flash 1s infinite alternate; /* Apply flashing animation */
+}
+}
+@media (min-width: 3150px) {
+  .scroll-to-top {
+    position: fixed;
+    top: 70%;
+    right: 48%;
+    z-index: 9999;
+    display: none; /* Initially hidden */
+    cursor: pointer;
+  }
+
+.scroll-to-top span {
+  font-size: 250px;
+  color: rgb(76, 197, 227);
+  animation: flash 1s infinite alternate; /* Apply flashing animation */
+
+  
+}
 }

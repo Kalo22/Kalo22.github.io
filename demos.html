@@ -25,20 +25,25 @@
         </nav>
     </header>
 
+    <div class="scroll-to-top" id="scrollToTop">
+        <span>&#10597;</span>
+    </div>
+
     <div class="photo" id="dynamicPhoto">
         <img src="images/aplbg.jpeg" alt="cybergirl">
         <div class="title-overlay">
             <h1 class="gradient-text">Code the Future</h1>
         </div>
     </div>
-    
-    <div class = "container">
+    <div class="container">
         <h1>Program Demos</h1>
         <h2>Here you can find some of the programs that I have built</h2>
-        <ul>
-            <li><a href = "/typing.html">Typing Software</a></li>
-            <li><a href = "/passgen.html">Password Generator</a></li>
-        </ul>
+        <div class='buttonmenu'>
+            <ul>
+            <li><button id="backButton" onclick= "window.location.href='/typing.html'">Typing Software</button></li>
+            <li><button id="backButton" onclick= "window.location.href='/passgen.html'">Password Generator</button></li>
+            </ul>
+        </div>
     </div>
 
     <footer class="footer">

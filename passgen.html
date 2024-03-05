@@ -5,22 +5,25 @@
     <meta http-equiv="X-UA_Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href = "style.css">
-    <title>PassGen</title>
+    <title>TypeSoft</title>
     <script src="https://cjrtnc.leaningtech.com/3.0rc2/cj3loader.js"></script> <!--Web ass-->
 </head>
-<body>    
-    <div>
-        <button id="backButton" onclick="goBack()">X</button>
-        <div id="display" style="width: 800px; height: 800px;"></div>
-    </div>
-    <div>
-        <h1>Program Demos</h1>
-        <h2>Java Password Generator</h2>
+<body id = "appbody"> 
+    <div id="appcontent">
+        <div class="text-item-bord">
+            <div>
+                <h1>Java Password Generator</h1>
+            </div>  
+            <button id="backButton" onclick="goBack()">BACK</button>
+        </div>
+        <div class="app-item-bord">
+            <div id="display"></div>
+        </div>
     </div>
     <script>
         (async function () {
           await cheerpjInit();
-          cheerpjCreateDisplay(600, 600, document.getElementById('display'));
+          cheerpjCreateDisplay(800, 700, document.getElementById('display'));
           await cheerpjRunJar("/app/java_programs/pass_gen.jar");
         })();
 
